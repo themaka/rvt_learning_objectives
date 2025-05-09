@@ -1,71 +1,35 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-import Header from './components/Header'
-import Counter from './components/Counter'
-import Button from './components/Button'
-import ThemeToggle from './components/ThemeToggle'
-import ContactForm from './components/ContactForm'
-import ChatBot from './components/ChatBot'
-import { useTheme } from './context/ThemeContext'
+import { useState } from 'react';
+import './App.css';
+import Navigation from './components/Navigation';
+import BloomsTaxonomy from './pages/BloomsTaxonomy';
+import ExampleObjectives from './pages/ExampleObjectives';
+import ChatTool from './pages/ChatTool';
+
+type Page = 'taxonomy' | 'examples' | 'chatTool';
 
 function App() {
-  const [showExtraCounter, setShowExtraCounter] = useState(false)
-  const [showContactForm, setShowContactForm] = useState(false)
-  const [showChatBot, setShowChatBot] = useState(false)
-  const { theme } = useTheme()
-
-  useEffect(() => {
-    document.body.setAttribute('data-theme', theme)
-  }, [theme])
+  const [activePage, setActivePage] = useState<Page>('taxonomy');
 
   return (
-    <div className="app" data-theme={theme}>
-      <Header title="VIDA Learning Objectives Agent" />
+    <div className="app">
+      <header>
+        <h1>Learning Objectives Builder</h1>
+        <p>A tool for instructors to create high quality learning objectives based on Bloom's Taxonomy</p>
+      </header>
       
-      <div className="app-content">
-        <ThemeToggle />
-        
-        <Counter initialValue={0} step={1} />
-        
-        <div className="card">
-          <div className="button-group">
-            <Button 
-              onClick={() => setShowExtraCounter(!showExtraCounter)}
-              variant="outline"
-            >
-              {showExtraCounter ? 'Hide' : 'Show'} Extra Counter
-            </Button>
-            
-            <Button 
-              onClick={() => setShowContactForm(!showContactForm)}
-              variant="primary"
-            >
-              {showContactForm ? 'Hide' : 'Show'} Contact Form
-            </Button>
-            
-            <Button 
-              onClick={() => setShowChatBot(!showChatBot)}
-              variant="secondary"
-            >
-              {showChatBot ? 'Hide' : 'Show'} Claude Chat
-            </Button>
-          </div>
-        </div>
-        
-        {showExtraCounter && (
-          <Counter initialValue={10} step={5} />
-        )}
-        
-        {showContactForm && (
-          <ContactForm />
-        )}
-        
-        {showChatBot && (
-          <ChatBot />
-        )}
-      </div>
+      <Navigation activePage={activePage} setActivePage={setActivePage} />
+      
+      <main className="app-content">
+        {activePage === 'taxonomy' && <BloomsTaxonomy />}
+        {activePage === 'examples' && <ExampleObjectives />}
+        {activePage === 'chatTool' && <ChatTool />}
+      </main>
+      
+      <footer style={{ marginTop: '2rem', fontSize: '0.9rem', color: '#666' }}>
+        <p>© {new Date().getFullYear()} Learning Objectives Builder - Educational Tool</p>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
