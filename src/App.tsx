@@ -5,11 +5,13 @@ import Counter from './components/Counter'
 import Button from './components/Button'
 import ThemeToggle from './components/ThemeToggle'
 import ContactForm from './components/ContactForm'
+import ChatBot from './components/ChatBot'
 import { useTheme } from './context/ThemeContext'
 
 function App() {
   const [showExtraCounter, setShowExtraCounter] = useState(false)
   const [showContactForm, setShowContactForm] = useState(false)
+  const [showChatBot, setShowChatBot] = useState(false)
   const { theme } = useTheme()
 
   useEffect(() => {
@@ -40,6 +42,13 @@ function App() {
             >
               {showContactForm ? 'Hide' : 'Show'} Contact Form
             </Button>
+            
+            <Button 
+              onClick={() => setShowChatBot(!showChatBot)}
+              variant="secondary"
+            >
+              {showChatBot ? 'Hide' : 'Show'} Claude Chat
+            </Button>
           </div>
         </div>
         
@@ -49,6 +58,10 @@ function App() {
         
         {showContactForm && (
           <ContactForm />
+        )}
+        
+        {showChatBot && (
+          <ChatBot />
         )}
         
         <p className="read-the-docs">

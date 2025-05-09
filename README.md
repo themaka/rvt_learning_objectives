@@ -11,15 +11,18 @@ This project is a modern React application built with TypeScript and Vite. It de
 - 🪝 **Custom Hooks** - Demonstrates reusable logic
 - 🌐 **Context API** - For global state management
 - 📝 **Form Handling** - With validation and error handling
+- 🤖 **Chatbot** - Integration with Anthropic's Claude API
 
 ## Project Structure
 
-```
+```txt
 src/
 ├── assets/          # Static assets
 ├── components/      # Reusable UI components
 ├── context/         # React Context API definitions
 ├── hooks/           # Custom React hooks
+├── services/        # API services and external integrations
+├── types/           # TypeScript type definitions
 ├── App.tsx          # Main application component
 └── main.tsx         # Application entry point
 ```
@@ -31,6 +34,18 @@ src/
 - **ThemeToggle**: Switch between light and dark themes
 - **ContactForm**: Form demonstration using custom hook
 - **Button**: Reusable button with multiple variants
+- **ChatBot**: Integrated AI chatbot using Anthropic's Claude API
+
+## Setup
+
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Copy `.env.example` to `.env` and add your Anthropic API key:
+   ```bash
+   cp .env.example .env
+   ```
+4. Edit `.env` and replace `your_api_key_here` with your actual API key from [Anthropic Console](https://console.anthropic.com/)
+5. Start the development server with `npm run dev`
 
 ## Usage
 
