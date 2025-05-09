@@ -8,9 +8,13 @@ if (!apiKey || apiKey === 'your_api_key_here') {
 }
 
 // Initialize Anthropic client
-const anthropic = new Anthropic({
-  apiKey: apiKey || 'dummy_key_for_dev', // Fallback to prevent crashes in development
-});
+// const anthropic = new Anthropic({
+//   apiKey: apiKey || 'dummy_key_for_dev', // Fallback to prevent crashes in development
+// });
+
+// temoporarily using dangerouslyallowbrowser for testing
+const anthropic = new Anthropic({ apiKey, dangerouslyAllowBrowser: true });
+
 
 /**
  * Send a message to Anthropic Claude and get a response
@@ -29,7 +33,7 @@ export const sendMessage = async (
     }
     
     // Convert our messages format to Anthropic's format
-    const systemPrompt = "You are Claude, a helpful AI assistant. Keep responses concise and helpful.";
+    const systemPrompt = "You are Claude, a helpful AI assistant and an expert on Bloom's Taxonomy. Keep responses concise and helpful.";
     
     // Format messages for Anthropic's API
     const formattedMessages = messages.map(msg => ({
