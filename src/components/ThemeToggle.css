@@ -1,0 +1,19 @@
+.theme-toggle {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.theme-toggle-button {
+  margin-bottom: 0.5rem;
+}
+
+.theme-status {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
