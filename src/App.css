@@ -28,9 +28,3 @@
   justify-content: center;
   flex-wrap: wrap;
 }
-
-.read-the-docs {
-  color: var(--text-color);
-  opacity: 0.8;
-  margin-top: 2rem;
-}

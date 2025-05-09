@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="app" data-theme={theme}>
-      <Header title="React + Vite + TypeScript" />
+      <Header title="VIDA Learning Objectives Agent" />
       
       <div className="app-content">
         <ThemeToggle />
@@ -63,10 +63,6 @@ function App() {
         {showChatBot && (
           <ChatBot />
         )}
-        
-        <p className="read-the-docs">
-          Click on the Vite and React logos to learn more
-        </p>
       </div>
     </div>
   )
