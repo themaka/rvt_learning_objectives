@@ -121,6 +121,12 @@
   border-radius: 4px;
 }
 
+.chat-input input::placeholder {
+  color: white;
+  font-style: italic;
+  opacity: 0.7;
+}
+
 .chat-input button {
   padding: 0.75rem 1.5rem;
   background: #646cff;
