@@ -1,4 +1,4 @@
-import { FormEvent } from 'react';
+import type { FormEvent } from 'react';
 import { useForm } from '../hooks/useForm';
 import Button from './Button';
 import './ContactForm.css';

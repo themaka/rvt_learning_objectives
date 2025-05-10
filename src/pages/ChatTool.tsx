@@ -32,11 +32,11 @@ interface AnthropicRequest {
   system: string;
 }
 
-interface AnthropicResponse {
-  content: string;
-  model: string;
-  type: string;
-}
+// interface AnthropicResponse {
+//   content: string;
+//   model: string;
+//   type: string;
+// }
 
 const ChatTool: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
